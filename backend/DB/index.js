@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 function DataBase() {
-    mongoose.connect("mongodb+srv://Ankit1122:SfCfMEbVRLpzvRsh@cluster0.wez5r.mongodb.net/Paytm")
+    mongoose.connect(process.env.MONGO_URI)
         .then(() => console.log("Database connected"))
         .catch(err => console.error("Database connection error:", err));
 }
